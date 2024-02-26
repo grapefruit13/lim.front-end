@@ -1,0 +1,10 @@
+.container {
+  @include flexbox(between);
+
+  &-logo {
+    @include image-fit;
+
+    width: 20rem;
+    height: 2rem;
+  }
+}
