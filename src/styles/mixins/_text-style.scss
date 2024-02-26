@@ -90,4 +90,8 @@
   @if $weight == 'bold' {
     font-weight: 600;
   }
+
+  @if $weight == 'super' {
+    font-weight: 700;
+  }
 }

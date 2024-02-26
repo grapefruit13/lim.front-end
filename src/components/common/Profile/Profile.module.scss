@@ -1,0 +1,17 @@
+.container {
+  @include flexbox(between);
+
+  &-mimoticon-wrapper {
+    position: relative;
+    width: 10rem;
+    height: 10rem;
+
+    &-img {
+      @include image-fit;
+    }
+  }
+
+  &-introduction {
+    @include text-style(28, $gray10, bold);
+  }
+}
