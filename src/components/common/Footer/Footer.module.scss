@@ -1,0 +1,25 @@
+.container {
+  @include flexbox($gap: 2.2rem);
+
+  &-copyright {
+    @include text-style-16;
+  }
+
+  &-github-wrapper {
+    width: 2.5rem;
+    height: 2.4rem;
+
+    &-img {
+      @include image-fit;
+    }
+  }
+
+  &-linkedin-wrapper {
+    width: 2.6rem;
+    height: 2.2rem;
+
+    &-img {
+      @include image-fit;
+    }
+  }
+}
