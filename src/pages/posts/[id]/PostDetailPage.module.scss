@@ -23,6 +23,31 @@
     text-align: left;
   }
 
+  &-sharebutton-wrapper {
+    @include flexbox($gap: 1rem);
+
+    position: sticky;
+    bottom: 4vh;
+    width: 16rem;
+    height: 4rem;
+    background: $primary;
+    border-radius: 4rem;
+
+    &-text {
+      @include text-style(14, $black10);
+    }
+
+    &-img {
+      position: relative;
+      width: 2rem;
+      height: 2rem;
+
+      &-svg {
+        @include image-fit;
+      }
+    }
+  }
+
   &-footer {
     @include flexbox($gap: 1rem);
 

@@ -16,17 +16,11 @@ export const Post = defineDocumentType(() => ({
       type: 'string',
       required: true,
     },
-    category: {
-      type: 'string',
+    categories: {
+      type: 'list',
+      of: { type: 'string' },
       required: true,
-    },
-    category2: {
-      type: 'string',
-      required: false,
-    },
-    category3: {
-      type: 'string',
-      required: false,
+      default: [],
     },
     thumbnail: {
       type: 'string',
@@ -49,13 +43,13 @@ const contentSource = makeSource({
   mdx: {
     remarkPlugins: [],
     rehypePlugins: [
-      highlight,
       [
         rehypePrettyCode,
         {
           theme: 'github-dark',
         },
       ],
+      highlight,
     ],
   },
 });

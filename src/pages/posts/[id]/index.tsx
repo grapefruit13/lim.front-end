@@ -1,16 +1,18 @@
 import { GetStaticPaths, GetStaticProps, InferGetServerSidePropsType } from 'next';
-import classNames from 'classnames/bind';
+import Image from 'next/image';
 import { useMDXComponent } from 'next-contentlayer/hooks';
+import classNames from 'classnames/bind';
 import { allPosts } from '@/contentlayer/generated';
 import formatDate from '@/utils/formatDate';
-import styles from './PostDetail.module.scss';
+import { SVGS } from '@/constants/importImage';
+import styles from './PostDetailPage.module.scss';
 
 const cx = classNames.bind(styles);
 
 const PostDetailPage = ({ post }: InferGetServerSidePropsType<typeof getStaticProps>) => {
   const MDXComponent = useMDXComponent(post?.body.code || '');
-  const creatdDate = post?.createdAt;
-  const convertedDate = formatDate(creatdDate);
+  const createdDate = post?.createdAt;
+  const convertedDate = formatDate(createdDate);
 
   return (
     <article className={cx('container')}>
@@ -26,10 +28,25 @@ const PostDetailPage = ({ post }: InferGetServerSidePropsType<typeof getStaticPr
       <div className={cx('container-paragraph')}>
         <MDXComponent />
       </div>
+      <button className={cx('container-sharebutton-wrapper')}>
+        <span className={cx('container-sharebutton-wrapper-text')}>Share this post</span>
+        <div className={cx('container-sharebutton-wrapper-img')}>
+          <Image
+            className={cx('container-sharebutton-wrapper-img-svg')}
+            src={SVGS.iconShare.url}
+            alt={SVGS.iconShare.alt}
+            fill
+            objectFit='cover'
+            sizes='100%'
+          />
+        </div>
+      </button>
       <footer className={cx('container-footer')}>
-        <span className={cx('container-footer-category')}>{post?.category}</span>
-        <span className={cx('container-footer-category')}>{post?.category2}</span>
-        <span className={cx('container-footer-category')}>{post?.category3}</span>
+        {post?.categories.map((category: string, i: number) => (
+          <span key={`${category}-${i}`} className={cx('container-footer-category')}>
+            {category}
+          </span>
+        ))}
       </footer>
     </article>
   );

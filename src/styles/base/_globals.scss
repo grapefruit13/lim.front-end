@@ -12,3 +12,16 @@
     position: absolute !important;
   }
 }
+
+::-webkit-scrollbar {
+  width: 0.8rem;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 1rem;
+  background: rgba($primary, 0.8);
+}
+
+::-webkit-scrollbar-track {
+  background-color: transparent;
+}

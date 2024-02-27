@@ -1,0 +1,13 @@
+.layout {
+  @include column-flexbox($gap: 3.2rem);
+
+  max-width: 80rem;
+  margin: 0 auto;
+  padding: 4rem 0;
+
+  &-content-container {
+    @include column-flexbox($gap: 2rem);
+
+    width: 100%;
+  }
+}

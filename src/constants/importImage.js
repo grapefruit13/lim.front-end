@@ -4,6 +4,7 @@ import LightMode from '/public/svg/light-mode.svg';
 import Mimoticon from '/public/img/mimoticon.png';
 import GithubWhite from '/public/svg/github-white.svg';
 import LinkedIn from '/public/svg/linkedIn-blue.svg';
+import IconShare from '/public/icon/ic-share.svg';
 
 export const SVGS = {
   logo: {
@@ -27,6 +28,10 @@ export const SVGS = {
   linkedIn: {
     url: LinkedIn,
     alt: 'linked-in-blue-mark',
+  },
+  iconShare: {
+    url: IconShare,
+    alt: 'icon-share',
   },
 };
 
