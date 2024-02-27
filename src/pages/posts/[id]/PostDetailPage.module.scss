@@ -1,0 +1,62 @@
+.container {
+  @include column-flexbox($gap: 2rem);
+
+  &-header {
+    @include column-flexbox($gap: 1rem);
+
+    width: 100%;
+
+    &-title {
+      @include text-style(40, $gray10, super);
+    }
+
+    &-info {
+      @include flexbox(start, center, 2rem);
+      @include text-style(14, $gray20);
+
+      margin-right: auto;
+    }
+  }
+
+  &-paragraph {
+    width: 100%;
+    text-align: left;
+  }
+
+  &-sharebutton-wrapper {
+    @include flexbox($gap: 1rem);
+
+    position: sticky;
+    bottom: 4vh;
+    width: 16rem;
+    height: 4rem;
+    background: $primary;
+    border-radius: 4rem;
+
+    &-text {
+      @include text-style(14, $black10);
+    }
+
+    &-img {
+      position: relative;
+      width: 2rem;
+      height: 2rem;
+
+      &-svg {
+        @include image-fit;
+      }
+    }
+  }
+
+  &-footer {
+    @include flexbox($gap: 1rem);
+
+    margin-right: auto;
+
+    &-category {
+      padding: 0.5rem 1rem;
+      background: $gray20;
+      border-radius: 5rem;
+    }
+  }
+}
