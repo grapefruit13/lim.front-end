@@ -1,9 +1,11 @@
 import { InferGetServerSidePropsType } from 'next';
 import Link from 'next/link';
+import Image from 'next/image';
 import classNames from 'classnames/bind';
 import { getStaticProps } from '@/pages';
 import formatDate from '@/utils/formatDate';
 import styles from './PostCard.module.scss';
+import Thumbnail from '../Thumbnail';
 
 const cx = classNames.bind(styles);
 
@@ -21,29 +23,47 @@ interface PostProps {
 
 const PostCard = ({ posts }: InferGetServerSidePropsType<typeof getStaticProps>) => (
   <>
+    <p className={cx('main-title')}>POSTS</p>
     {posts?.map((post: PostProps, i: number) => (
-      <article key={`${post}-${i}`} className={cx('container')}>
-        <Link href={`/posts/${post._raw.flattenedPath}`}>
-          <div className={cx('container-post')}>
-            <span className={cx('container-post-title')}>{post.title}</span>
-            <span className={cx('container-post-description')}>{post.description}</span>
-            <div className={cx('container-post-category-container')}>
-              {post?.categories.map((category: string, i: number) => (
-                <span
-                  key={`${category}-${i}`}
-                  className={cx('container-post-category-container-category')}
-                >
-                  #{category}
-                </span>
-              ))}
-            </div>
-            <span className={cx('container-post-createdAt')}>
-              {formatDate(post?.createdAt)}
-            </span>
+      <Link
+        className={cx('container')}
+        key={`${post}-${i}`}
+        href={`/posts/${post._raw.flattenedPath}`}
+      >
+        <article className={cx('container-left')}>
+          <span className={cx('container-left-createdAt')}>
+            {formatDate(post?.createdAt)}
+          </span>
+          <div className={cx('container-left-thumbnail-wrapper')}>
+            {post?.thumbnail ? (
+              <Image
+                className={cx('container-left-thumbnail-wrapper-img')}
+                src={post?.thumbnail}
+                alt='post thumbnail'
+                fill
+                sizes='100%'
+              />
+            ) : (
+              <Thumbnail title={post?.title} />
+            )}
           </div>
-          <div className={cx('container-thumnail-wrapper')}>썸네일</div>
-        </Link>
-      </article>
+        </article>
+
+        <div className={cx('container-right')}>
+          <span className={cx('container-right-title')}>{post.title}</span>
+          <span className={cx('container-right-description')}>{post.description}</span>
+          <div className={cx('container-right-category-container')}>
+            {post?.categories.map((category: string, i: number) => (
+              <span
+                key={`${category}-${i}`}
+                className={cx('container-right-category-container-category')}
+              >
+                {category}
+              </span>
+            ))}
+          </div>
+        </div>
+      </Link>
     ))}
   </>
 );
