@@ -8,8 +8,14 @@ const cx = classNames.bind(styles);
 
 const Header = () => (
   <div className={cx('container')}>
-    <Link href={'/'}>
-      <Image src={SVGS.logo.url} alt={SVGS.logo.alt} width={240} height={60} />
+    <Link className={cx('container-logo-wrapper')} href={'/'}>
+      <Image
+        className={cx('container-logo-wrapper-svg')}
+        src={SVGS.logo.url}
+        alt={SVGS.logo.alt}
+        fill
+        sizes='100%'
+      />
     </Link>
     <span>
       <Image src={SVGS.darkMode.url} alt={SVGS.darkMode.alt} />

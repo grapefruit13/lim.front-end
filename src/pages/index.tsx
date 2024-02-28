@@ -20,7 +20,7 @@ interface MainPageProps {
 const MainPage = ({ posts }: MainPageProps) => (
   <>
     <Head>
-      <title>lim.Front-end</title>
+      <title>lim.dev</title>
       <meta name='description' content='Welcome to lim dev blog' />
       <meta name='viewport' content='width=device-width, initial-scale=1' />
       <link rel='icon' href='/svg/favicon.svg' />

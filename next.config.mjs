@@ -7,10 +7,18 @@ const nextConfig = {
   sassOptions: {
     additionalData: '@import "@/styles/main.scss";',
   },
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: '**',
+      },
+      {
+        protocol: 'http',
+        hostname: '**',
+      },
+    ],
+  },
 };
-
-// export default nextConfig;
-
-// module.exports = withContentLayer(nextConfig);
 
 export default withContentlayer(nextConfig);

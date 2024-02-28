@@ -18,7 +18,6 @@ const Footer = () => (
           src={SVGS.github.white.url}
           alt={SVGS.github.white.alt}
           fill
-          objectFit='cover'
           sizes='100%'
         />
       </Link>
@@ -29,7 +28,6 @@ const Footer = () => (
         src={SVGS.linkedIn.url}
         alt={SVGS.linkedIn.alt}
         fill
-        objectFit='cover'
         sizes='100%'
       />
     </div>

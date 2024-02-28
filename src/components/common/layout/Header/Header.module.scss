@@ -3,10 +3,13 @@
 
   width: 100%;
 
-  &-logo {
-    @include image-fit;
+  &-logo-wrapper {
+    position: relative;
+    width: 15rem;
+    height: 3.5rem;
 
-    width: 20rem;
-    height: 2rem;
+    &-svg {
+      @include image-fit;
+    }
   }
 }

@@ -54,6 +54,8 @@
     margin-right: auto;
 
     &-category {
+      @include text-style-12;
+
       padding: 0.5rem 1rem;
       background: $gray20;
       border-radius: 5rem;
