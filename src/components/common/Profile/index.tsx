@@ -13,13 +13,13 @@ const Profile = () => (
         src={PNGS.mimoticon.url}
         alt={PNGS.mimoticon.alt}
         fill
-        objectFit='cover'
         sizes='100%'
       />
     </div>
     <div className={cx('container-introduction')}>
-      This is a place to document my journey in web dev. <br />
-      And I am lim.
+      I am a web developer living in Korea.
+      <br />
+      This is a place I document anything about Development.
     </div>
   </div>
 );

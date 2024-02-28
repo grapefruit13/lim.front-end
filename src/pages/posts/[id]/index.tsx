@@ -20,7 +20,7 @@ const PostDetailPage = ({ post }: InferGetServerSidePropsType<typeof getStaticPr
         <span className={cx('container-header-title')}>{post?.title}</span>
         <div className={cx('container-header-info')}>
           <span className={cx('container-header-info-mins')}>
-            {post?.minsToRead}mins to read
+            {post?.minsToRead} mins to read
           </span>
           <span className={cx('container-header-info-createdAt')}>{convertedDate}</span>
         </div>
@@ -36,7 +36,6 @@ const PostDetailPage = ({ post }: InferGetServerSidePropsType<typeof getStaticPr
             src={SVGS.iconShare.url}
             alt={SVGS.iconShare.alt}
             fill
-            objectFit='cover'
             sizes='100%'
           />
         </div>
