@@ -103,6 +103,18 @@
     @include text-style-28;
   }
 
+  @if $size == 30 {
+    @include text-style-30;
+  }
+
+  @if $size == 32 {
+    @include text-style-32;
+  }
+
+  @if $size == 34 {
+    @include text-style-34;
+  }
+
   @if $size == 40 {
     @include text-style-40;
   }
