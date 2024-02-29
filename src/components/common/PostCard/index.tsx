@@ -14,22 +14,18 @@ interface PostProps {
   description: string;
   categories: string[];
   thumbnail: string;
-  createdAt: string;
+  createdAt: Date;
   minsToRead: number;
   _raw: {
     flattenedPath: string;
   };
+  url: string;
 }
 
 const PostCard = ({ posts }: InferGetServerSidePropsType<typeof getStaticProps>) => (
   <>
-    <p className={cx('main-title')}>POSTS</p>
     {posts?.map((post: PostProps, i: number) => (
-      <Link
-        className={cx('container')}
-        key={`${post}-${i}`}
-        href={`/posts/${post._raw.flattenedPath}`}
-      >
+      <Link className={cx('container')} key={`${post}-${i}`} href={post.url}>
         <article className={cx('container-left')}>
           <span className={cx('container-left-createdAt')}>
             {formatDate(post?.createdAt)}
@@ -58,7 +54,7 @@ const PostCard = ({ posts }: InferGetServerSidePropsType<typeof getStaticProps>)
                 key={`${category}-${i}`}
                 className={cx('container-right-category-container-category')}
               >
-                {category}
+                #{category}
               </span>
             ))}
           </div>

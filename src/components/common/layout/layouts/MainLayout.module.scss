@@ -1,9 +1,9 @@
 .layout {
-  @include column-flexbox($gap: 3.2rem);
+  @include column-flexbox($gap: 1.6rem);
 
   max-width: 72rem;
   margin: 0 auto;
-  padding: 4rem 0;
+  padding-bottom: 4rem;
 
   &-content-container {
     @include column-flexbox($gap: 2rem);

@@ -6,6 +6,7 @@ import { allPosts } from '@/contentlayer/generated';
 import formatDate from '@/utils/formatDate';
 import { SVGS } from '@/constants/importImage';
 import styles from './PostDetailPage.module.scss';
+import Comment from '@/components/common/Comment';
 
 const cx = classNames.bind(styles);
 
@@ -28,7 +29,7 @@ const PostDetailPage = ({ post }: InferGetServerSidePropsType<typeof getStaticPr
       <div className={cx('container-paragraph')}>
         <MDXComponent />
       </div>
-      <button className={cx('container-sharebutton-wrapper')}>
+      {/* <button className={cx('container-sharebutton-wrapper')}>
         <span className={cx('container-sharebutton-wrapper-text')}>Share this post</span>
         <div className={cx('container-sharebutton-wrapper-img')}>
           <Image
@@ -39,7 +40,7 @@ const PostDetailPage = ({ post }: InferGetServerSidePropsType<typeof getStaticPr
             sizes='100%'
           />
         </div>
-      </button>
+      </button> */}
       <footer className={cx('container-footer')}>
         {post?.categories.map((category: string, i: number) => (
           <span key={`${category}-${i}`} className={cx('container-footer-category')}>
@@ -47,6 +48,7 @@ const PostDetailPage = ({ post }: InferGetServerSidePropsType<typeof getStaticPr
           </span>
         ))}
       </footer>
+      <Comment />
     </article>
   );
 };

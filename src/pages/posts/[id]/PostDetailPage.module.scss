@@ -2,7 +2,7 @@
   @include column-flexbox($gap: 2rem);
 
   &-header {
-    @include column-flexbox($gap: 1rem);
+    @include column-flexbox($gap: 1.2rem);
 
     width: 100%;
 
@@ -21,6 +21,7 @@
   &-paragraph {
     width: 100%;
     text-align: left;
+    font-size: 1.6rem;
   }
 
   &-sharebutton-wrapper {

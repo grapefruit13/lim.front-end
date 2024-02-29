@@ -1,7 +1,13 @@
 .container {
   @include flexbox(between);
 
+  position: sticky;
+  z-index: $header-level;
+  top: 0;
+  padding: 1.6rem 0;
   width: 100%;
+  backdrop-filter: blur(1rem);
+  background-color: rgba($gray90, 0.9);
 
   &-logo-wrapper {
     position: relative;
