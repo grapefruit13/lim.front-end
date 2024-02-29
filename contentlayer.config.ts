@@ -35,18 +35,25 @@ export const Post = defineDocumentType(() => ({
       required: true,
     },
   },
+  computedFields: {
+    url: {
+      type: 'string',
+      resolve: (post) => `/posts/${post._raw.flattenedPath}`,
+    },
+  },
 }));
 
 const contentSource = makeSource({
   contentDirPath: 'posts',
   documentTypes: [Post],
   mdx: {
-    remarkPlugins: [],
+    remarkPlugins: [highlight],
     rehypePlugins: [
       [
         rehypePrettyCode,
         {
-          theme: 'github-dark',
+          theme: 'slack-dark',
+          keepBackground: true,
         },
       ],
       highlight,
